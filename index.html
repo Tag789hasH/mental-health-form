@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Mental Health Check-In</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #e6f7ff;
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+      margin: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #0056b3;
+      font-size: 2.2em;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      text-align: center;
+      color: #555;
+      font-size: 1.1em;
+      margin-bottom: 20px;
+    }
+    .section {
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #eee;
+    }
+    label {
+      display: block;
+      margin: 8px 0;
+      font-weight: 500;
+    }
+    input[type="text"], textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    textarea {
+      resize: vertical;
+      height: 60px;
+    }
+    .radio-group {
+      margin: 8px 0;
+    }
+    .radio-group label {
+      display: inline;
+      margin-right: 15px;
+      font-weight: normal;
+    }
+    .stars {
+      display: flex;
+      justify-content: flex-start;
+      font-size: 1.5rem;
+      gap: 5px;
+    }
+    .stars label {
+      cursor: pointer;
+      color: #ddd;
+    }
+    .stars input:checked + label {
+      color: gold;
+    }
+    button {
+      background-color: #0056b3;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1em;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #004085;
+    }
+    .admin {
+      margin-top: 30px;
+      text-align: center;
+    }
+    .download-btn {
+      background-color: #28a745;
+      padding: 10px 20px;
+      font-size: 1em;
+    }
+    .download-btn:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>STUDENT MENTAL HEALTH CHECK IN</h1>
+    <p class="subtitle">This questionnaire is 100% anonymous. Please do not write your name.</p>
+
+    <form id="mentalHealthForm">
+      <div class="section">
+        <label>Grade: <input type="text" id="grade" required /></label>
+        <div>
+          <label>Gender (optional):</label><br />
+          <label class="radio-group"><input type="radio" name="gender" value="Male" /> Male</label>
+          <label class="radio-group"><input type="radio" name="gender" value="Female" /> Female</label>
+          <label class="radio-group"><input type="radio" name="gender" value="Prefer not to say" /> Prefer not to say</label>
+        </div>
+        <div>
+          <label>Average grade last term:</label><br />
+          <label class="radio-group"><input type="radio" name="gradeRange" value="Below 50%" /> Below 50%</label>
+          <label class="radio-group"><input type="radio" name="gradeRange" value="50%-59%" /> 50%–59%</label>
+          <label class="radio-group"><input type="radio" name="gradeRange" value="60%-69%" /> 60%–69%</label>
+          <label class="radio-group"><input type="radio" name="gradeRange" value="70%-79%" /> 70%–79%</label>
+          <label class="radio-group"><input type="radio" name="gradeRange" value="80%+" /> 80%+</label>
+        </div>
+        <div>
+          <label>Mental/physical health affects academics:</label><br />
+          <label class="radio-group"><input type="radio" name="healthImpact" value="1" /> 1 – Not at all</label>
+          <label class="radio-group"><input type="radio" name="healthImpact" value="2" /> 2 – A little</label>
+          <label class="radio-group"><input type="radio" name="healthImpact" value="3" /> 3 – Sometimes</label>
+          <label class="radio-group"><input type="radio" name="healthImpact" value="4" /> 4 – Often</label>
+          <label class="radio-group"><input type="radio" name="healthImpact" value="5" /> 5 – Always</label>
+        </div>
+        <div>
+          <label>Mental health this week:</label><br />
+          <div class="stars">
+            <input type="radio" name="mentalHealthRating" value="1" id="star1" />
+            <label for="star1">★</label>
+            <input type="radio" name="mentalHealthRating" value="2" id="star2" />
+            <label for="star2">★</label>
+            <input type="radio" name="mentalHealthRating" value="3" id="star3" />
+            <label for="star3">★</label>
+            <input type="radio" name="mentalHealthRating" value="4" id="star4" />
+            <label for="star4">★</label>
+            <input type="radio" name="mentalHealthRating" value="5" id="star5" />
+            <label for="star5">★</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Mental Health & Stress</h2>
+        <div>
+          <label>Stressed because of schoolwork:</label><br />
+          <label class="radio-group"><input type="radio" name="stressSchool" value="1" /> 1 – Never</label>
+          <label class="radio-group"><input type="radio" name="stressSchool" value="2" /> 2 – Rarely</label>
+          <label class="radio-group"><input type="radio" name="stressSchool" value="3" /> 3 – Sometimes</label>
+          <label class="radio-group"><input type="radio" name="stressSchool" value="4" /> 4 – Often</label>
+          <label class="radio-group"><input type="radio" name="stressSchool" value="5" /> 5 – Always</label>
+        </div>
+        <div>
+          <label>Anxious about performance:</label><br />
+          <label class="radio-group"><input type="radio" name="anxiousPerformance" value="1" /> 1 – Never</label>
+          <label class="radio-group"><input type="radio" name="anxiousPerformance" value="2" /> 2 – Rarely</label>
+          <label class="radio-group"><input type="radio" name="anxiousPerformance" value="3" /> 3 – Sometimes</label>
+          <label class="radio-group"><input type="radio" name="anxiousPerformance" value="4" /> 4 – Often</label>
+          <label class="radio-group"><input type="radio" name="anxiousPerformance" value="5" /> 5 – Always</label>
+        </div>
+        <div>
+          <label>Sad, low, or unmotivated:</label><br />
+          <label class="radio-group"><input type="radio" name="sadAnxious" value="1" /> 1 – Never</label>
+          <label class="radio-group"><input type="radio" name="sadAnxious" value="2" /> 2 – Rarely</label>
+          <label class="radio-group"><input type="radio" name="sadAnxious" value="3" /> 3 – Sometimes</label>
+          <label class="radio-group"><input type="radio" name="sadAnxious" value="4" /> 4 – Often</label>
+          <label class="radio-group"><input type="radio" name="sadAnxious" value="5" /> 5 – Always</label>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Academic Impact</h2>
+        <div>
+          <label>Affects concentration in class:</label><br />
+          <label class="radio-group"><input type="radio" name="concentrate" value="1" /> 1 – Strongly Disagree</label>
+          <label class="radio-group"><input type="radio" name="concentrate" value="2" /> 2 – Disagree</label>
+          <label class="radio-group"><input type="radio" name="concentrate" value="3" /> 3 – Neutral</label>
+          <label class="radio-group"><input type="radio" name="concentrate" value="4" /> 4 – Agree</label>
+          <label class="radio-group"><input type="radio" name="concentrate" value="5" /> 5 – Strongly Agree</label>
+        </div>
+        <div>
+          <label>Affects homework/study:</label><br />
+          <label class="radio-group"><input type="radio" name="homework" value="1" /> 1 – Strongly Disagree</label>
+          <label class="radio-group"><input type="radio" name="homework" value="2" /> 2 – Disagree</label>
+          <label class="radio-group"><input type="radio" name="homework" value="3" /> 3 – Neutral</label>
+          <label class="radio-group"><input type="radio" name="homework" value="4" /> 4 – Agree</label>
+          <label class="radio-group"><input type="radio" name="homework" value="5" /> 5 – Strongly Agree</label>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Coping & Support</h2>
+        <div>
+          <label>Have someone to talk to:</label><br />
+          <label class="radio-group"><input type="radio" name="trustSomeone" value="1" /> 1 – Strongly Disagree</label>
+          <label class="radio-group"><input type="radio" name="trustSomeone" value="2" /> 2 – Disagree</label>
+          <label class="radio-group"><input type="radio" name="trustSomeone" value="3" /> 3 – Neutral</label>
+          <label class="radio-group"><input type="radio" name="trustSomeone" value="4" /> 4 – Agree</label>
+          <label class="radio-group"><input type="radio" name="trustSomeone" value="5" /> 5 – Strongly Agree</label>
+        </div>
+        <div>
+          <label>Know where to get help:</label><br />
+          <label class="radio-group"><input type="radio" name="knowHelp" value="1" /> 1 – Strongly Disagree</label>
+          <label class="radio-group"><input type="radio" name="knowHelp" value="2" /> 2 – Disagree</label>
+          <label class="radio-group"><input type="radio" name="knowHelp" value="3" /> 3 – Neutral</label>
+          <label class="radio-group"><input type="radio" name="knowHelp" value="4" /> 4 – Agree</label>
+          <label class="radio-group"><input type="radio" name="knowHelp" value="5" /> 5 – Strongly Agree</label>
+        </div>
+        <div>
+          <label>What helps you manage stress?<br /><textarea id="manageStress"></textarea></label>
+        </div>
+        <div>
+          <label>What support would help you?<br /><textarea id="supportResources"></textarea></label>
+        </div>
+      </div>
+
+      <button type="submit">Submit Response</button>
+    </form>
+
+    <div class="admin">
+      <button class="download-btn" onclick="downloadResponses()">Download All Responses (CSV)</button>
+    </div>
+  </div>
+
+  <script>
+    let responses = JSON.parse(localStorage.getItem('mentalHealthResponses')) || [];
+
+    document.getElementById("mentalHealthForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData.entries());
+      data.timestamp = new Date().toLocaleString();
+
+      responses.push(data);
+      localStorage.setItem('mentalHealthResponses', JSON.stringify(responses));
+
+      this.reset();
+      alert("Thank you for your feedback!");
+    });
+
+    function downloadResponses() {
+      if (responses.length === 0) {
+        alert("No responses yet.");
+        return;
+      }
+
+      const headers = [
+        "Grade", "Gender", "Grade Range", "Health Impact", "Mental Health Rating",
+        "Stress School", "Anxious Performance", "Sad Anxious",
+        "Concentrate", "Homework", "Trust Someone", "Know Help",
+        "Manage Stress", "Support Resources", "Timestamp"
+      ];
+
+      const csvContent = [
+        headers.join(","),
+        ...responses.map(r => [
+          r.grade,
+          r.gender,
+          r.gradeRange,
+          r.healthImpact,
+          r.mentalHealthRating,
+          r.stressSchool,
+          r.anxiousPerformance,
+          r.sadAnxious,
+          r.concentrate,
+          r.homework,
+          r.trustSomeone,
+          r.knowHelp,
+          r.manageStress || "",
+          r.supportResources || "",
+          r.timestamp
+        ].map(field => `"${(field || '').replace(/"/g, '""')}"`).join(","))
+      ].join("\n");
+
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "mental-health-responses.csv";
+      a.click();
+    }
+  </script>
+</body>
+</html>
